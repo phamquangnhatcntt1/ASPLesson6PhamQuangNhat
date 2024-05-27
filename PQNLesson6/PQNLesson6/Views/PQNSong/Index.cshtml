@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PQNLesson6.Models.PQNSong>
+
+@{
+    ViewBag.Title = "PQNSong";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Thêm Mới", "PQNCreate")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PQNTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PQNAuthor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PQNArtist)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PQNYearRealese)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PQNTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PQNAuthor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PQNArtist)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PQNYearRealese)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
